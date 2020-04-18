@@ -11,7 +11,8 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.blueAccent,
         body: SafeArea(
-          child: Column(children: <Widget>[
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: <
+              Widget>[
             CircleAvatar(
               radius: 50.0,
               backgroundImage:
@@ -30,58 +31,48 @@ class MyApp extends StatelessWidget {
               'Web Frontend Enginner',
               style: TextStyle(
                 fontFamily: 'Roboto',
-                fontSize: 24.0,
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
+                fontSize: 23.0,
+                color: Colors.white70,
+                fontWeight: FontWeight.w400,
               ),
             ),
-            Container(
-              color: Colors.white,
-              padding: EdgeInsets.all(10.0),
-              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-              child: Row(
-                children: <Widget>[
-                  Icon(
+            SizedBox(
+              width: 150.0,
+              height: 20.0,
+              child: Divider(
+                color: Colors.blue.shade100,
+              ),
+            ),
+            Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                child: ListTile(
+                  leading: Icon(
                     Icons.phone,
                     color: Colors.blueAccent,
                   ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  Text(
+                  title: Text(
                     '080-1234-5678',
                     style: TextStyle(
-                      color: Colors.blueAccent.shade700,
-                      fontFamily: 'Lobster',
-                      fontSize: 20.0,
-                    ),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              color: Colors.white,
-              padding: EdgeInsets.all(10.0),
-              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-              child: Row(
-                children: <Widget>[
-                  Icon(
+                        fontSize: 20.0,
+                        color: Colors.blueAccent.shade700,
+                        fontFamily: 'Lobster'),
+                  ),
+                )),
+            Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                child: ListTile(
+                  leading: Icon(
                     Icons.email,
                     color: Colors.blueAccent,
                   ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  Text(
+                  title: Text(
                     'flutter@email.com',
                     style: TextStyle(
                         fontSize: 20.0,
                         color: Colors.blueAccent.shade700,
                         fontFamily: 'Lobster'),
-                  )
-                ],
-              ),
-            )
+                  ),
+                )),
           ]),
         ),
       ),
