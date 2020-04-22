@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterfirstapp/screens/chat.screen.dart';
 import 'package:flutterfirstapp/screens/login.screen.dart';
 import 'package:flutterfirstapp/screens/register.screen.dart';
 import 'screens/welcom.screen.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         RegistrationScreen.id: (context) => RegistrationScreen(),
         LoginScreen.id: (context) => LoginScreen(),
+        ChatScreen.id: (context) => ChatScreen(),
       },
     );
   }
