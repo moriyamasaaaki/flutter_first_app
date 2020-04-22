@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterfirstapp/main.dart';
 import 'package:flutterfirstapp/screens/login.screen.dart';
 import 'package:flutterfirstapp/screens/register.screen.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -55,9 +56,9 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                     fontWeight: FontWeight.w900,
                   ),
                 ),
-                Text(
-                  'Flutter チャット💭',
-                  style: TextStyle(
+                TypewriterAnimatedTextKit(
+                  text: ['Flutter チャット💭'],
+                  textStyle: TextStyle(
                     fontSize: 40.0,
                     fontWeight: FontWeight.w900,
                   ),
