@@ -9,7 +9,22 @@ class WelcomeScreen extends StatefulWidget {
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
+  AnimationController controller;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller = AnimationController(
+      duration: Duration(seconds: 1),
+      vsync: this,
+      upperBound: 100.0,
+    );
+    controller.forward();
+    controller.addListener(() => {setState(() {}), print(controller.value)});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +41,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 //                  child: Image.asset('images/conference-room-768441_1920.jpg'),
 //                  height: 60.0,
                     ),
+                Text(
+                  '${controller.value.toInt()}%',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
                 Text(
                   'Flutter チャット💭',
                   style: TextStyle(
