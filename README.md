@@ -1,4 +1,4 @@
-# flutterfirstapp
+# flutterfirstapp/チャットアプリ
 
 A new Flutter application.
 
