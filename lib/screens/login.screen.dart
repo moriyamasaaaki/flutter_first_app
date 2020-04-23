@@ -20,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: ModalProgressHUD(
         inAsyncCall: sohwSpinner,
         child: Padding(
@@ -46,8 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onChanged: (value) {
                   email = value;
                 },
-                decoration:
-                    kTextFiledDecoration.copyWith(hintText: 'Enter your email'),
+                decoration: kTextFiledDecoration.copyWith(hintText: 'メールアドレス'),
               ),
               SizedBox(
                 height: 8.0,
@@ -58,15 +57,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 onChanged: (value) {
                   password = value;
                 },
-                decoration: kTextFiledDecoration.copyWith(
-                    hintText: 'Enter your password'),
+                decoration: kTextFiledDecoration.copyWith(hintText: 'パスワード'),
               ),
               SizedBox(
                 height: 24.0,
               ),
               RoundedButton(
                 title: 'ログイン',
-                color: Colors.lightBlueAccent,
+                color: Colors.teal,
                 onPressed: () async {
                   setState(() {
                     sohwSpinner = true;

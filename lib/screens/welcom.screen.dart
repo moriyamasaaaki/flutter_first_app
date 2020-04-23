@@ -70,14 +70,14 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             ),
             RoundedButton(
               title: 'ログイン',
-              color: Colors.lightBlueAccent,
+              color: Colors.green,
               onPressed: () {
                 Navigator.pushNamed(context, LoginScreen.id);
               },
             ),
             RoundedButton(
               title: '登録',
-              color: Colors.blueAccent,
+              color: Colors.teal,
               onPressed: () {
                 Navigator.pushNamed(context, RegistrationScreen.id);
               },
