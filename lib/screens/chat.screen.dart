@@ -49,7 +49,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 Navigator.pop(context);
               }),
         ],
-        title: Text('チャット'),
+        title: Text('チャットルーム'),
         backgroundColor: Colors.lightBlueAccent,
       ),
       body: SafeArea(
@@ -75,8 +75,11 @@ class _ChatScreenState extends State<ChatScreen> {
                   FlatButton(
                     onPressed: () {
                       messageTextController.clear();
-                      _firestore.collection('messages').add(
-                          {'text': messageText, 'sender': loggedInUser.email});
+                      _firestore.collection('messages').add({
+                        'text': messageText,
+                        'sender': loggedInUser.email,
+                        'createdAt': DateTime.now().millisecondsSinceEpoch
+                      });
                     },
                     child: Text(
                       '送信',
@@ -97,7 +100,8 @@ class MessagesStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: _firestore.collection('messages').snapshots(),
+      stream:
+          _firestore.collection('messages').orderBy('createdAt').snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return Center(
@@ -111,6 +115,7 @@ class MessagesStream extends StatelessWidget {
         for (var message in messages) {
           final messageText = message.data['text'];
           final messageSender = message.data['sender'];
+          final messageCreatedAt = message.data['createdAt'];
           final currentUser = loggedInUser.email;
 
           final messageBubble = MessageBubble(
@@ -149,7 +154,7 @@ class MessageBubble extends StatelessWidget {
           Text(
             sender,
             style: TextStyle(
-              fontSize: 12.0,
+              fontSize: 13.0,
               color: Colors.black54,
             ),
           ),
@@ -171,8 +176,9 @@ class MessageBubble extends StatelessWidget {
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
               child: Text(text,
                   style: TextStyle(
+                    letterSpacing: .7,
                     color: isMe ? Colors.white : Colors.black54,
-                    fontSize: 15.0,
+                    fontSize: 16.0,
                   )),
             ),
           ),
